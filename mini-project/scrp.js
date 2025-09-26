@@ -43,7 +43,7 @@ if (vt){
 
 
 
-    alert(vt ? `Correct : ${score}` : ` Faux : ${score}`);
+    console.log(vt ? `Correct : ${score}` : ` Faux : ${score}`);
 
 }
- alert(`bien joue scour dialek howa     ${score}/${round}`);
+ console.log(`bien joue scour dialek howa     ${score}/${round}`);
