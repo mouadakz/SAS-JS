@@ -1,0 +1,6 @@
+    li:nth-child(odd) {
+      color: rgb(146, 255, 82);
+    }
+    li:nth-child(even) {
+      color: blue;
+    }
