@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bibliotheque</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f0f0f0; }
+    header, footer { text-align: center; margin-bottom: 20px; }
+    .card { background: #fff; padding: 15px; margin: 10px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .card button { margin-right: 5px; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Bibliotheque de lecole Mouad</h1>
+</header>
+
+<main>
+    <section class="ajout-livre">
+        <h2>Ajouter un livre</h2>
+        <form id="f">
+            <input type="number" id="code" placeholder="Code" required>
+            <input type="text" id="titre" placeholder="Titre" required>
+            <input type="text" id="auteur" placeholder="Auteur" required>
+            <input type="number" id="annee" placeholder="Année" required>
+            <input type="number" id="prix" placeholder="Prix (dh)" required>
+            <label><input type="checkbox" id="disponible" checked> Disponible</label>
+            <button type="submit">Ajouter</button>
+        </form>
+    </section>
+
+    <section id="dy" class="catalogue"></section>
+</main>
+
+<footer>
+    <p id="info"></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
