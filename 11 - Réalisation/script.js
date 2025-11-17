@@ -13,7 +13,6 @@ const catalog = document.getElementById("dy");
 const information = document.getElementById("info");
 let triAsc = true;
 
-// --- Fonction statistiques ---
 function majStats() {
     const total = bibliotheque.length;
     const dispo = bibliotheque.filter(l => l.disponible).length;
@@ -21,7 +20,6 @@ function majStats() {
     information.textContent = `Total: ${total} livres | Disponibles: ${dispo} | Empruntés: ${nonDispo} | Livre le plus cher: ${livreLePlusCher()}`;
 }
 
-// --- Livre le plus cher ---
 function livreLePlusCher() {
     if (bibliotheque.length === 0) return "";
     let max = bibliotheque[0];
@@ -31,7 +29,6 @@ function livreLePlusCher() {
     return `${max.titre} (${max.prix} dh)`;
 }
 
-// --- Affichage livres ---
 function afficher(liste = bibliotheque) {
     catalog.innerHTML = "";
     for (let livre of liste) {
@@ -44,7 +41,6 @@ function afficher(liste = bibliotheque) {
         let annee = document.createElement("p"); annee.textContent = "Année: " + livre.annee;
         let prix = document.createElement("p"); prix.textContent = "Prix: " + livre.prix + " dh";
 
-        // Bouton Réserver ou label Réservé
         let dispoElem = document.createElement("p");
         if (livre.disponible) {
             let btn = document.createElement("button");
@@ -62,7 +58,6 @@ function afficher(liste = bibliotheque) {
             dispoElem.style.color = "red";
         }
 
-        // Bouton Supprimer
         let btnsuppr = document.createElement("button");
         btnsuppr.textContent = "Supprimer";
         btnsuppr.onclick = function() {
@@ -78,7 +73,6 @@ function afficher(liste = bibliotheque) {
     majStats();
 }
 
-// --- Ajouter livre ---
 ajouterForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const code = parseInt(document.getElementById("code").value);
@@ -94,7 +88,6 @@ ajouterForm.addEventListener("submit", function(e) {
     afficher();
 });
 
-// --- Bouton Trier ---
 const btnTrier = document.createElement("button");
 btnTrier.textContent = "Trier par Titre";
 btnTrier.style.marginLeft = "10px";
@@ -105,7 +98,6 @@ btnTrier.onclick = function() {
 };
 document.querySelector('header').appendChild(btnTrier);
 
-// --- Barre de recherche ---
 const searchInput = document.createElement('input');
 searchInput.type = 'text';
 searchInput.placeholder = 'Rechercher un livre par titre';
@@ -117,9 +109,9 @@ searchInput.addEventListener('input', () => {
 });
 document.querySelector('header').appendChild(searchInput);
 
-// --- Initialisation ---
 afficher();
 
 window.addEventListener("beforeunload", () => {
     localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
 });
+
